@@ -54,7 +54,7 @@ async def start(client, message):
             InlineKeyboardButton('🏮 Tᴇᴀᴍ Kʟ Oꜰꜰɪᴄɪᴀʟ Lɪɴᴋs 🏮', callback_data="group_info")
         ]]   
         reply_markup = InlineKeyboardMarkup(buttons)
-         T = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+        T = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
         Time = T.hour        
         if Time < 12:
             afsu="Gᴏᴏᴅ Mᴏʀɴɪɴɢ" 
