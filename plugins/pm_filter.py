@@ -64,11 +64,9 @@ async def give_filter(client, message):
         if glob == False:
             manual = await manual_filters(client, message)
             if manual == False:
-            if FILTER_MODE.get(str(message.chat.id)) == "False":
-            return
-        else:
-            await auto_filter(client, message)
-               
+                FILTER_MODE.get(str(message.chat.id))
+                if FILTER_MODE == False:
+                    await auto_filter(client, message)              
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
