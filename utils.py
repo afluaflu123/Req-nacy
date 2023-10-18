@@ -22,7 +22,7 @@ BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))"
 )
 
-imdb = Cinemagoer() 
+imdb = Cinemagoer()
 
 BANNED = {}
 SMART_OPEN = '“'
@@ -39,7 +39,6 @@ class temp(object):
     MELCOW = {}
     U_NAME = None
     B_NAME = None
-    B_LINK = None
     SETTINGS = {}
 
 async def is_subscribed(bot, query):
