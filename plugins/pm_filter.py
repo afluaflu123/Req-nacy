@@ -1,10 +1,10 @@
-# Kanged From @TroJanZheX
-# REDIRECT added https://github.com/Joelkb
 import asyncio
 import re
 import ast
 import math
 import random
+import pytz
+import datetime
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
 import pyrogram
@@ -579,55 +579,23 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "help2":
+    elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('🎁 Mᴏʀᴇ Fᴇᴀᴛᴜʀᴇꜱ 🎁', callback_data='help')  
+            InlineKeyboardButton('Fɪʟᴛᴇʀꜱ', callback_data='filters'),     
+            InlineKeyboardButton('Fɪʟᴇ Sᴛᴏʀᴇ', callback_data='store_file')
         ], [
-            InlineKeyboardButton('✮ Fɪʟᴛᴇʀs ✮', callback_data='filters'),
-            InlineKeyboardButton('✬ Fɪʟᴇ Sᴛᴏʀᴇ ✬', callback_data='store_file')
+            InlineKeyboardButton('Cᴏɴɴᴇᴄᴛ', callback_data='coct'),
+            InlineKeyboardButton('Exᴛʀᴀ Mᴏᴅꜱ', callback_data='extra')                        
         ], [
-            InlineKeyboardButton('✰ Cᴏɴɴᴇᴄᴛɪᴏɴꜱ ✰', callback_data='coct'),
-            InlineKeyboardButton('✯ Exᴛʀᴀ Mᴏᴅꜱ ✯', callback_data='extra')   
-        ], [
-            InlineKeyboardButton('✬ Hᴏᴍᴇ ✬', callback_data='start'),
-            InlineKeyboardButton('✧ Sᴛᴀᴛᴜꜱ ✧', callback_data='stats')
+            InlineKeyboardButton('⇍ Bᴀᴄᴋ', callback_data='start'),
+            InlineKeyboardButton('〄 Sᴛᴀᴛᴜs', callback_data='stats')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(                     
             text=script.HELPER_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-        )
-    elif query.data == "help":
-        buttons = [[
-             InlineKeyboardButton('♪ ᴀᴜᴅɪᴏʙᴏᴏᴋ ♪', callback_data='abook'),
-             InlineKeyboardButton('☫ ᴄᴏᴜɴᴛʀʏ ☫', callback_data='country'),
-             InlineKeyboardButton('✠ ᴄᴀʀʙᴏɴ ✠', callback_data='carb')    
-         ], [
-             InlineKeyboardButton('☻ ᴘɪɴɢ ☻', callback_data='pings'),
-             InlineKeyboardButton('◂ ᴊsᴏɴᴇ ▸', callback_data='json'),
-             InlineKeyboardButton('❆ sᴛɪᴄᴋɪᴅ ❆', callback_data='sticker')
-         ], [
-             InlineKeyboardButton('♤ ᴡʜᴏɪs ♤', callback_data='whois'),
-             InlineKeyboardButton('☮ ᴜʀʟsʜᴏʀᴛ ☮', callback_data='urlshort'),
-             InlineKeyboardButton('✎ ɢᴛʀᴀɴs ✎', callback_data='gtrans')
-         ], [
-            InlineKeyboardButton('♬ sᴏɴɢ ♬', callback_data='song'),
-            InlineKeyboardButton('☼ ᴛᴛs ☼', callback_data='tts'),  
-            InlineKeyboardButton('⇜ ᴛɢʀᴀᴘʜ ⇝', callback_data='tele')     
-         ], [
-            InlineKeyboardButton('◀ ᴠɪᴅᴇᴏ ▶', callback_data='video'),
-            InlineKeyboardButton('〄 ғᴏɴᴛ 〄', callback_data='font'),
-            InlineKeyboardButton('⊝ ᴅᴇᴘʟᴏʏ ⊝', callback_data='deploy')
-         ], [ 
-            InlineKeyboardButton('↭ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ​↭', callback_data='help2')
-         ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(                     
-            text=script.HELP_TXT.format(query.from_user.mention),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+        )    
     elif query.data == "about":
         buttons = [[
             InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs​', callback_data="group_info"),
