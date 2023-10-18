@@ -1268,7 +1268,7 @@ async def manual_filters(client, message, text=False):
             if reply_text:
                 reply_text = reply_text.replace("\\n", "\n").replace("\\t", "\t")
 
-             if btn is not None:
+            if btn is not None:
                 try:
                     if fileid == "None":
                         if btn == "[]":
