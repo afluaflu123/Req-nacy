@@ -29,9 +29,19 @@ async def start(client, message):
                     InlineKeyboardButton('• Gʀᴏᴜᴘ •', url='https://t.me/KLMovieGroup')
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        T = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+        Time = T.hour        
+        if Time < 12:
+            afsu="Gᴏᴏᴅ Mᴏʀɴɪɴɢ" 
+        elif Time < 15:
+            afsu="Gᴏᴏᴅ AғᴛᴇʀNᴏᴏɴ" 
+        elif Time < 20:
+            afsu="Gᴏᴏᴅ Eᴠᴇɴɪɴɢ"
+        else:
+            afsu="Gᴏᴏᴅ Nɪɢʜᴛ"
         kd = await message.reply_photo(
         photo=random.choice(PICS),
-        caption=script.SUR_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
+        caption=script.SUR_TXT.format(afsu, message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(20)
         await kd.delete()
         await message.delete()
